@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Additional custom styles can be added here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Result</h1>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Station ID</th>
+                    <th>Station Name</th>
+                    <th>Poste Ouvert</th>
+                    <th>Type Poste</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Altitude</th>
+                    <th>Poste Public</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for station in result %}
+                    <tr>
+                        <td>{{ station.id }}</td>
+                        <td>{{ station.nom }}</td>
+                        <td>{{ "Ouvert" if station.posteOuvert else "Fermé" }}</td>
+                        <td>{{ station.typePoste }}</td>
+                        <td>{{ station.lat }}</td>
+                        <td>{{ station.lon }}</td>
+                        <td>{{ station.alt }}</td>
+                        <td>{{ "Oui" if station.postePublic else "Non" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="btn btn-primary mt-3">Back to Select Department</a>
+    </div>
+</body>
+</html>
